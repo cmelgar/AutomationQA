@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EntidadQA
 {
-    public class Shoe
+    public class ShoeBE
     {
         public string name { get; set; }
         public string price { get; set; }
