@@ -11,9 +11,14 @@ using EntidadQA;
 
 namespace AutomationTest
 {
-    class EbayTest
+    public class EbayTest
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
+        {
+            AutomationEbay();
+        }
+
+        public static void AutomationEbay()
         {
             IWebDriver driver = new ChromeDriver();
             driver.Url = "http://www.ebay.com";
@@ -52,14 +57,14 @@ namespace AutomationTest
                     break;
                 }
             }
-            
+
             IWebElement elementProduct = FindObject(controls.ProductElement, Constantes.XPATH, driver);
 
             i = 0;
             List<IWebElement> list = new List<IWebElement>();
 
             ShoeBE objShoe;
-            
+
             List<ShoeBE> listShoe = new List<ShoeBE>();
             while (i < 5)
             {
@@ -75,12 +80,12 @@ namespace AutomationTest
                 listShoe.Add(objShoe);
             }
 
-            List<ShoeBE> nameOrder = listShoe.OrderBy(o=>o.name).ToList();
+            List<ShoeBE> nameOrder = listShoe.OrderBy(o => o.name).ToList();
             Console.WriteLine("Lista de productos por nombre ascendente: ");
             Console.WriteLine("------------------------------------------");
             for (i = 0; i < nameOrder.Count; i++)
             {
-                Console.WriteLine("Producto {0} : ",i);
+                Console.WriteLine("Producto {0} : ", i);
                 Console.WriteLine("Nombre : " + nameOrder.ElementAt(i).name);
                 Console.WriteLine("Precio : " + nameOrder.ElementAt(i).price);
             }
